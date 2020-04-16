@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Pedra Papel Tesoura</title>
+  </head>
+  <body>
+    <script>
+      function computerPlay(){
+        let choice = Math.floor(Math.random()*3);
+        let options = ['pedra', 'papel', 'tesoura'];
+
+        alert(options[choice]);
+      }
+
+      function playRound(playerSelection, computerSelection){
+        if (playerSelection==='pedra'){
+            if(computerSelection==='pedra'){
+                alert('Empatou, jogue novamente!');
+            }
+            if else (computerSelection==='papel'){
+                alert('Você Perdeu, mané.');
+            }
+            if else (computerSelection==='tesoura'){
+                alert('O homem vence a máquina mais uma vez...')
+            }
+            else {
+                alert('Algo muito errado acabou de acontecer xD')
+            }
+        }
+        if (playerSelection==='papel'){
+            if(computerSelection==='pedra'){
+                alert('O homem vence a máquina mais uma vez...')
+            }
+            if else (computerSelection==='papel'){
+                alert('Empatou, jogue novamente!');
+            }
+            if else (computerSelection==='tesoura'){
+                alert('Você Perdeu, mané.');
+            }
+            else {
+                alert('Algo muito errado acabou de acontecer xD')
+            }
+        }
+        if (playerSelection==='tesoura'){
+            if(computerSelection==='pedra'){
+                alert('Você Perdeu, mané.');
+            }
+            if else (computerSelection==='papel'){
+                alert('O homem vence a máquina mais uma vez...')
+            }
+            if else (computerSelection==='tesoura'){
+                alert('Empatou, jogue novamente!');
+            }
+            else {
+                alert('Algo muito errado acabou de acontecer xD')
+            }
+        }
+      }
+
+      let computerSelection = computerPlay;
+      let playerSelection = prompt('Pedra, Papel ou Tesoura?')
+      playerSelection = playerSelection.toLowerCase();
+
+      alert(playerSelection)
+
+      computerPlay()
+    </script>
+  </body>
+</html>
