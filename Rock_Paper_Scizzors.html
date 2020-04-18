@@ -6,68 +6,96 @@
   </head>
   <body>
     <script>
-      function computerPlay(){
-        let choice = Math.floor(Math.random()*3);
-        let options = ['pedra', 'papel', 'tesoura'];
+      function computerPlay() {
+        let choice = Math.floor(Math.random() * 3);
+        let options = ["pedra", "papel", "tesoura"];
 
         return options[choice];
       }
 
-      function playRound(playerSelection, computerSelection){
-        if (playerSelection==='pedra'){
-            if(computerSelection==='pedra'){
-                alert('Empatou, jogue novamente!');
-            }
-            else if (computerSelection==='papel'){
-                alert('Você Perdeu, mané.');
-            }
-            else if (computerSelection==='tesoura'){
-                alert('O homem vence a máquina mais uma vez...');
-            }
-            else {
-                alert('Algo muito errado acabou de acontecer xD');
-            }
-        }
-        else if (playerSelection==='papel'){
-            if(computerSelection==='pedra'){
-                alert('O homem vence a máquina mais uma vez...');
-            }
-            else if (computerSelection==='papel'){
-                alert('Empatou, jogue novamente!');
-            }
-            else if (computerSelection==='tesoura'){
-                alert('Você Perdeu, mané.');
-            }
-            else {
-                alert('Algo muito errado acabou de acontecer xD');
-            }
-        }
-        else if (playerSelection==='tesoura'){
-            if(computerSelection==='pedra'){
-                alert('Você Perdeu, mané.');
-            }
-            else if (computerSelection==='papel'){
-                alert('O homem vence a máquina mais uma vez...');
-            }
-            else if (computerSelection==='tesoura'){
-                alert('Empatou, jogue novamente!');
-            }
-            else {
-                alert('Algo muito errado acabou de acontecer xD');
-            }
-        }
-        else {
-            alert('Algo muito errado acabou de acontecer geralxD');
+      function playRound(playerSelection, computerSelection) {
+        if (playerSelection === "pedra") {
+          if (computerSelection === "pedra") {
+            alert("Empatou, jogue novamente!");
+          } else if (computerSelection === "papel") {
+            alert("Você Perdeu, mané.");
+            computerScore++;
+            rounds++;
+          } else if (computerSelection === "tesoura") {
+            alert("O homem vence a máquina mais uma vez...");
+            playerScore++;
+            rounds++;
+          } else {
+            alert("Algo muito errado acabou de acontecer xD");
+          }
+        } else if (playerSelection === "papel") {
+          if (computerSelection === "pedra") {
+            alert("O homem vence a máquina mais uma vez...");
+            playerScore++;
+            rounds++;
+          } else if (computerSelection === "papel") {
+            alert("Empatou, jogue novamente!");
+          } else if (computerSelection === "tesoura") {
+            alert("Você Perdeu, mané.");
+            computerScore++;
+            rounds++;
+          } else {
+            alert("Algo muito errado acabou de acontecer xD");
+          }
+        } else if (playerSelection === "tesoura") {
+          if (computerSelection === "pedra") {
+            alert("Você Perdeu, mané.");
+            computerScore++;
+            rounds++;
+          } else if (computerSelection === "papel") {
+            alert("O homem vence a máquina mais uma vez...");
+            playerScore++;
+            rounds++;
+          } else if (computerSelection === "tesoura") {
+            alert("Empatou, jogue novamente!");
+          } else {
+            alert("Algo muito errado acabou de acontecer xD");
+          }
+        } else {
+          alert("Algo muito errado acabou de acontecer geralxD");
         }
       }
 
-      computerPlay()
+      function game() {
+          while (rounds < 5) {
+            computerPlay();
 
-      let computerSelection = computerPlay();
-      let playerSelection = prompt('Pedra, Papel ou Tesoura?');
-      playerSelection = playerSelection.toLowerCase();
+            let computerSelection = computerPlay();
+            let playerSelection = prompt("Pedra, Papel ou Tesoura?");
+            playerSelection = playerSelection.toLowerCase();
 
-      playRound(playerSelection, computerSelection);
+            playRound(playerSelection, computerSelection);
+        }
+
+        winner(playerScore, computerScore);
+      }
+
+      function winner(playerScore, computerScore){
+          if (computerScore>playerScore){
+              alert('He\'s to strong... He can\'t be beaten');
+              alert('computer wins: ' + computerScore + ' a ' + playerScore);
+          }
+          else if (playerScore>computerScore){
+              alert('Parabéns você ganhou... o proximo adversário é a torradeira');
+              alert('Player wins: ' + playerScore + ' a ' + computerScore);
+          }
+          else {
+              alert('algo muito errado acabou de acontecer');
+          }
+      }
+
+      let rounds = 0;
+      let playerScore = 0;
+      let computerScore = 0;
+
+      game();
+
+      alert("game over");
     </script>
   </body>
 </html>
