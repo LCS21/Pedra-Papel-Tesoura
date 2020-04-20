@@ -62,31 +62,29 @@
       }
 
       function game() {
-          while (rounds < 5) {
-            computerPlay();
+        while (rounds < 5) {
+          computerPlay();
 
-            let computerSelection = computerPlay();
-            let playerSelection = prompt("Pedra, Papel ou Tesoura?");
-            playerSelection = playerSelection.toLowerCase();
+          let computerSelection = computerPlay();
+          let playerSelection = prompt("Pedra, Papel ou Tesoura?");
+          playerSelection = playerSelection.toLowerCase();
 
-            playRound(playerSelection, computerSelection);
+          playRound(playerSelection, computerSelection);
         }
 
         winner(playerScore, computerScore);
       }
 
-      function winner(playerScore, computerScore){
-          if (computerScore>playerScore){
-              alert('He\'s to strong... He can\'t be beaten');
-              alert('computer wins: ' + computerScore + ' a ' + playerScore);
-          }
-          else if (playerScore>computerScore){
-              alert('Parabéns você ganhou... o proximo adversário é a torradeira');
-              alert('Player wins: ' + playerScore + ' a ' + computerScore);
-          }
-          else {
-              alert('algo muito errado acabou de acontecer');
-          }
+      function winner(playerScore, computerScore) {
+        if (computerScore > playerScore) {
+          alert("He's to strong... He can't be beaten");
+          alert("computer wins: " + computerScore + " a " + playerScore);
+        } else if (playerScore > computerScore) {
+          alert("Parabéns você ganhou... o proximo adversário é a torradeira");
+          alert("Player wins: " + playerScore + " a " + computerScore);
+        } else {
+          alert("algo muito errado acabou de acontecer");
+        }
       }
 
       let rounds = 0;
